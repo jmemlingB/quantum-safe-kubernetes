@@ -34,13 +34,22 @@ Scheduler Response: The kube-scheduler evicts high-security workloads from the t
 The system achieved a baseline MTTE of 142.5 ms. This speed is critical to prevent the generation of "weak" keys on nodes suffering from hardware decoherence.
 3.2 Raft Consensus Efficiency
 Using high-resolution quantum seeds resulted in a 13.6% reduction in leader-election collisions (Split Votes) compared to standard 1ms-integer PRNG seeds.
-3.3 Computational Verification Table
-Node-ID	Min-Entropy	K8s Status	Action Taken
-Node-1	0.7245	FAIL	APPLY_TAINT (142.5ms)
-Node-2	0.7147	FAIL	APPLY_TAINT (142.5ms)
-Node-3	0.7147	FAIL	APPLY_TAINT (142.5ms)
-Node-4	0.7457	FAIL	APPLY_TAINT (142.5ms)
-Node-5	0.7147	FAIL	APPLY_TAINT (142.5ms)
+
+
+### 3.3 Computational Verification Table
+
+
+| Node-ID | Min-Entropy | K8s Status | Action Taken |
+| :--- | :--- | :--- | :--- |
+| Node-1 | 0.7245 | **FAIL** | APPLY_TAINT (142.5ms) |
+| Node-2 | 0.7147 | **FAIL** | APPLY_TAINT (142.5ms) |
+| Node-3 | 0.7147 | **FAIL** | APPLY_TAINT (142.5ms) |
+| Node-4 | 0.7457 | **FAIL** | APPLY_TAINT (142.5ms) |
+| Node-5 | 0.7147 | **FAIL** | APPLY_TAINT (142.5ms) |
+
+
+
+
 4. Discussion and Executive Summary
 The findings suggest that a quantum-safe control plane is feasible using existing orchestration tools. By making the control plane "entropy-aware," we shift cryptographic integrity from a static assumption to a dynamic, monitorable resource. Key takeaways include:
 Proactive Security: Evacuation within 142.5 ms.
